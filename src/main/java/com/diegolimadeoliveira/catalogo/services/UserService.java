@@ -33,4 +33,16 @@ public class UserService {
 		repository.deleteById(id);
 	}
 	
+	public User update(Long id, User obj) {
+		User entity = repository.getOne(id); //nao vai no banco de dados ainda, vai so deixar um objeto monitorado pelo JPA - é melhor que findById
+		updateData(entity, obj);
+		return repository.save(entity);
+	}
+
+	private void updateData(User entity, User obj) {
+		entity.setName(obj.getName());
+		entity.setEmail(obj.getEmail());
+		entity.setPhone(obj.getPhone());	
+	}
+	
 }
