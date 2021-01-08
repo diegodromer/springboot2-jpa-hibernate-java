@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.diegolimadeoliveira.catalogo.entities.Category;
 import com.diegolimadeoliveira.catalogo.entities.Order;
 import com.diegolimadeoliveira.catalogo.entities.OrderItem;
+import com.diegolimadeoliveira.catalogo.entities.Payment;
 import com.diegolimadeoliveira.catalogo.entities.Product;
 import com.diegolimadeoliveira.catalogo.entities.User;
 import com.diegolimadeoliveira.catalogo.entities.enums.OrderStatus;
@@ -80,5 +81,9 @@ public class TestConfig implements CommandLineRunner {
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+	
+		Payment pay1 = new Payment(null, Instant.parse("2021-01-08T21:53:07Z"), o1);
+		o1.setPayment(pay1);
+		orderRepository.saveAll(Arrays.asList(o1));
 	}
 }
