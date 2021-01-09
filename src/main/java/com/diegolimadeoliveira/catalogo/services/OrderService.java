@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.diegolimadeoliveira.catalogo.entities.Order;
-import com.diegolimadeoliveira.catalogo.entities.Order;
 import com.diegolimadeoliveira.catalogo.repositories.OrderRepository;
 
 
